@@ -28,9 +28,11 @@ services:
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
-      - ./docker/mysql:/docker-entrypoint-initdb.d
+      - mysql-data:/var/lib/mysql
     networks:
       - ausy
+    ports:
+      - '33066:3306'
 
   ausy-nginx:
     image: nginx:alpine
@@ -43,6 +45,9 @@ services:
       - ./docker/nginx:/etc/nginx/conf.d/
     networks:
       - ausy
+
+volumes:
+  mysql-data:
 
 networks:
   ausy:

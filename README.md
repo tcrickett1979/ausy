@@ -19,6 +19,7 @@ docker-compose up
 ```
 
 Note: this is a blocking command.
+
 ___
 
 ## Terminating The App Stack ##
